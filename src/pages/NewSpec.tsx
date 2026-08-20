@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { createSpec } from '../api/client'
 import { ApiError } from '../api/types'
 import { formatBytes } from '../lib/format'
+import { SpecEditor } from '../components/SpecEditor'
 
 const EXPIRY_OPTIONS = [
   { label: 'never', value: 0 },
@@ -57,12 +58,10 @@ export function NewSpec() {
         </p>
       </header>
 
-      <textarea
-        className="editor"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
+      <SpecEditor
+        body={body}
+        onChange={setBody}
         placeholder={'openapi: 3.0.3\ninfo:\n  title: Orders API\n  version: "1.0.0"\npaths:\n  /orders:\n    get:\n      responses:\n        "200":\n          description: ok'}
-        spellCheck={false}
       />
 
       {message && (

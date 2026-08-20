@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getSpec, updateSpec } from '../api/client'
 import { ApiError } from '../api/types'
 import { formatBytes } from '../lib/format'
+import { SpecEditor } from '../components/SpecEditor'
 
 /**
  * Update an existing spec. Requires the edit token issued at creation —
@@ -66,12 +67,7 @@ export function EditSpec() {
         </p>
       </header>
 
-      <textarea
-        className="editor"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        spellCheck={false}
-      />
+      <SpecEditor body={body} onChange={setBody} />
 
       {message && (
         <div className="banner error">

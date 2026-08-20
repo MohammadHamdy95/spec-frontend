@@ -17,7 +17,13 @@ import {
   type VersionSummary,
 } from '../api/types'
 import { formatBytes, formatDate, pluralise } from '../lib/format'
-import { SpecReference } from '../components/SpecReference'
+import {
+  RendererToggle,
+  SpecPreview,
+  loadRenderer,
+  saveRenderer,
+  type Renderer,
+} from '../components/SpecPreview'
 import { DiffView } from '../components/DiffView'
 
 type Tab = 'docs' | 'source' | 'history' | 'diff'
@@ -37,6 +43,7 @@ export function ViewSpec() {
   const [versions, setVersions] = useState<VersionSummary[]>([])
   const [diff, setDiff] = useState<SpecDiff | null>(null)
   const [copied, setCopied] = useState(false)
+  const [renderer, setRenderer] = useState<Renderer>(loadRenderer)
 
   const pinned = version ? Number(version) : null
 
@@ -149,7 +156,20 @@ export function ViewSpec() {
         )}
       </nav>
 
-      {tab === 'docs' && <SpecReference content={spec.body} />}
+      {tab === 'docs' && (
+        <>
+          <div className="renderer-bar">
+            <RendererToggle
+              renderer={renderer}
+              onChange={(r) => {
+                setRenderer(r)
+                saveRenderer(r)
+              }}
+            />
+          </div>
+          <SpecPreview body={spec.body} renderer={renderer} />
+        </>
+      )}
 
       {tab === 'source' && (
         <pre className="source">

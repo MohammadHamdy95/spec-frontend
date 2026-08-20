@@ -371,3 +371,111 @@ button:disabled {
 .error-page a {
   color: var(--accent);
 }
+
+/* ── editor with live preview ───────────────────────────────────── */
+
+.editor-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Segmented control, used for both layout and renderer choice. */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.seg button {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-radius: 0;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.seg button + button {
+  border-left: 1px solid var(--border);
+}
+
+.seg button.on {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+
+.editor-panes {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 52vh;
+}
+
+.editor-panes.edit,
+.editor-panes.preview {
+  grid-template-columns: 1fr;
+}
+
+/* Side by side. Collapses below the breakpoint because two panes on a
+   phone gives you two unusable panes. */
+.editor-panes.split {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .editor-panes.split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.editor-panes .editor {
+  min-height: 52vh;
+  margin: 0;
+}
+
+.preview-pane {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 78vh;
+  background: var(--panel);
+}
+
+.preview-pane .reference {
+  border: none;
+  border-radius: 0;
+}
+
+.preview-hint {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.preview-hint .why {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.renderer-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.6rem;
+}
+
+/* Swagger UI ships a light theme; give it a white canvas rather than
+   letting it half-inherit the dark one and end up unreadable. */
+.reference.swagger {
+  background: #fff;
+  padding: 0.5rem 0;
+}
