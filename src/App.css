@@ -1,0 +1,373 @@
+/* Same palette and type as paste.hamdy.app — these are sibling tools and
+   should feel like one platform. Variables live in index.css. */
+
+.top {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.brand {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+.page-head h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.sub {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ── editor ─────────────────────────────────────────────────────── */
+
+.editor {
+  width: 100%;
+  min-height: 52vh;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.controls label.grow {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.controls select,
+.controls input {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.controls input:focus,
+.controls select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.size {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  padding-bottom: 0.5rem;
+}
+
+button,
+.button {
+  background: var(--accent);
+  color: #08150c;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.fineprint {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* ── banners ────────────────────────────────────────────────────── */
+
+.banner {
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.banner.ok {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.banner.warn {
+  border-color: var(--warn);
+  background: color-mix(in srgb, var(--warn) 12%, transparent);
+}
+
+.banner.error {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+
+.error-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+.error-list li {
+  margin-bottom: 0.25rem;
+}
+
+.token {
+  display: block;
+  margin-top: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  user-select: all;
+  word-break: break-all;
+}
+
+/* ── spec header ────────────────────────────────────────────────── */
+
+.spec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.spec-head h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.actions .button,
+.actions button {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.actions .button:hover,
+.actions button:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* ── tabs ───────────────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin: 1.25rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs button {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.5rem 0.85rem;
+  font-weight: 500;
+}
+
+.tabs button.on {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ── source + reference ─────────────────────────────────────────── */
+
+.source {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.reference {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  /* Scalar ships its own light/dark theming; let it own this box. */
+  background: #fff;
+}
+
+/* ── history ────────────────────────────────────────────────────── */
+
+.versions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.versions li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.87rem;
+}
+
+.versions a {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-weight: 600;
+}
+
+.versions .meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.versions .note {
+  color: var(--text);
+  font-style: italic;
+}
+
+.badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── diff ───────────────────────────────────────────────────────── */
+
+.change-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.change-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.86rem;
+  background: var(--panel);
+}
+
+/* Breaking changes are the reason this view exists — make them obvious
+   without relying on colour alone. */
+.change-list li.breaking {
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 8%, var(--panel));
+}
+
+.change-list li.breaking .badge {
+  background: color-mix(in srgb, var(--danger) 22%, transparent);
+  color: var(--danger);
+}
+
+.kind {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(139, 148, 158, 0.18);
+  color: var(--muted);
+}
+
+.kind.added { color: var(--accent); }
+.kind.removed { color: var(--danger); }
+.kind.modified { color: var(--warn); }
+
+.change-list .subject {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-weight: 600;
+}
+
+.change-list .detail {
+  color: var(--muted);
+  font-size: 0.8rem;
+  flex-basis: 100%;
+}
+
+/* ── misc ───────────────────────────────────────────────────────── */
+
+.notice {
+  color: var(--muted);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.error-page a {
+  color: var(--accent);
+}
